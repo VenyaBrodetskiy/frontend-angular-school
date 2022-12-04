@@ -1,0 +1,29 @@
+<div class="mf-person-card">
+    person-card works!
+    <div [innerText]="personName"></div>
+    <br>
+
+    <div class="mytable">
+        <div class="left">
+            <div class="table-info">Name</div>
+            <div class="table-info">ID</div>
+            <div class="table-info">address</div>
+            <div class="table-info">email</div>
+        </div>
+    
+        <div class="right">
+            <div class="table-info" [innerText]="personName"></div>
+            <div class="table-info" [innerText]="personId"></div>
+            <div class="table-info" [innerText]="personAddress"></div>
+            <div class="table-info" [innerText]="personEmail"></div>
+        </div>
+    </div>
+
+    <div class="clear-both"></div>
+
+    <button 
+        [innerText]="buttonTitle"
+        (click)="onToggleModeClick()">
+    </button>
+
+</div>

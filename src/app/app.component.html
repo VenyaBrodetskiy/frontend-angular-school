@@ -1,17 +1,57 @@
 <div class="mf-app-component">
     Hello World!
     <br />
-    <div class="sized-div">
-        &nbsp;
-    </div>
-    <div class="sized-div darken">
-        &nbsp;
-    </div>
-    <div class="sized-div light">
-        &nbsp;
+
+    {{ myProperty.length }}
+
+    <div>
+        <i>Ilya</i>
+        <div [innerText]="myProperty"></div>
+        <div [innerHTML]="htmlProperty"></div>
     </div>
 
-    <div class="sized-div saturate">
-        &nbsp;
+    <div (click)="onClickMeClick()">Click on me!</div>
+
+    <br>
+
+    <div class="mytable">
+        <div class="left">
+            <div class="table-info">Name</div>
+            <div class="table-info">ID</div>
+            <div class="table-info">address</div>
+            <div class="table-info">email</div>
+        </div>
+        <div class="input">
+    
+        </div>
+    
+        <div class="right">
+            <div>
+                <input type="text" [(ngModel)]="person.name" />
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="person.id" />
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="person.address" />
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="person.email" />
+            </div>
+        </div>
     </div>
+
+    <div class="clear-fix"></div>
+
+    <br>
+    <br>
+    <mf-person-card 
+        [personName]="person.name"
+        [personId]="person.id"
+        [personAddress]="person.address"
+        [personEmail]="person.email"
+        (onModeChange)="onCardModeChanged($event)">
+    </mf-person-card>
+
+    <div [innerHTML]="cardMessage"></div>
 </div>
