@@ -15,7 +15,9 @@ export class AppComponent {
     title = "frontend-nodejs-school";
 
     public myProperty: string = "Hooray!";
-    public htmlProperty: string = "<i>La-la!!</i>"
+    public htmlProperty: string = "<i>La-la!!</i>";
+
+    public JSON = JSON;
 
     public person: IPerson = {
         name: "Venya",

@@ -1,8 +1,4 @@
 <div class="mf-person-card">
-    person-card works!
-    <div [innerText]="personName"></div>
-    <br>
-
     <div class="mytable">
         <div class="left">
             <div class="table-info">Name</div>
@@ -12,10 +8,29 @@
         </div>
     
         <div class="right">
-            <div class="table-info" [innerText]="personName"></div>
-            <div class="table-info" [innerText]="personId"></div>
-            <div class="table-info" [innerText]="personAddress"></div>
-            <div class="table-info" [innerText]="personEmail"></div>
+
+            <div *ngIf="mode === ViewMode.ReadOnly" class="read-only-wrapper">
+                <div class="table-info" [innerText]="personName"></div>
+                <div class="table-info" [innerText]="personId"></div>
+                <div class="table-info" [innerText]="personAddress"></div>
+                <div class="table-info" [innerText]="personEmail"></div>
+            </div>
+
+            <div *ngIf="mode === ViewMode.Edit" lass="edit-wrapper">
+                <div>
+                    <input type="text" [(ngModel)]="personName" (keyup)="OnPersonNameChange()" />
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="personId" (keyup)="OnPersonIdChange()"/>
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="personAddress" (keyup)="OnPersonAddressChange()"/>
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="personEmail" (keyup)="OnPersonEmailChange()"/>
+                </div>
+            </div>
+
         </div>
     </div>
 
