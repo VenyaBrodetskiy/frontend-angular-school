@@ -5,6 +5,7 @@
             <div class="table-info">ID</div>
             <div class="table-info">address</div>
             <div class="table-info">email</div>
+            <div class="table-info">Gender</div>
         </div>
     
         <div class="right">
@@ -14,9 +15,10 @@
                 <div class="table-info" [innerText]="personId"></div>
                 <div class="table-info" [innerText]="personAddress"></div>
                 <div class="table-info" [innerText]="personEmail"></div>
+                <div class="table-info" [innerText]="personGender"></div>
             </div>
 
-            <div *ngIf="mode === ViewMode.Edit" lass="edit-wrapper">
+            <div *ngIf="mode === ViewMode.Edit" сlass="edit-wrapper">
                 <div>
                     <input type="text" [(ngModel)]="personName" (keyup)="OnPersonNameChange()" />
                 </div>
@@ -29,6 +31,9 @@
                 <div>
                     <input type="text" [(ngModel)]="personEmail" (keyup)="OnPersonEmailChange()"/>
                 </div>
+                <mf-radio-button 
+                    [radioOptions]="listOfGenders"
+                    (onChecked)="onChecked($event)"></mf-radio-button>
             </div>
 
         </div>
@@ -40,5 +45,5 @@
         [innerText]="buttonTitle"
         (click)="onToggleModeClick()">
     </button>
-
+    
 </div>

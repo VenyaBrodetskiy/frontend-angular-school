@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 enum ViewMode {
     ReadOnly,
@@ -13,19 +13,22 @@ const Save: string = "Save";
     templateUrl: "./person-card.component.html",
     styleUrls: ["./person-card.component.less"]
 })
-export class PersonCardComponent {
-    @Input() personName: string = "";
-    @Input() personId: string = "";
-    @Input() personAddress: string = "";
-    @Input() personEmail: string = "";
+export class PersonCardComponent implements OnInit {
+    @Input() personName: string = "defaultName";
+    @Input() personId: string = "defaultId";
+    @Input() personAddress: string = "defaultAddr";
+    @Input() personEmail: string = "defaultEmail";
+    @Input() personGender: string = "defaultGender";
 
     // need to make name of prop + Change. Then Angular will do banana in the box automatically
-    @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>;
-    @Output() personIdChange: EventEmitter<string> = new EventEmitter<string>;
-    @Output() personAddressChange: EventEmitter<string> = new EventEmitter<string>;
-    @Output() personEmailChange: EventEmitter<string> = new EventEmitter<string>;
+    @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() personIdChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() personAddressChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() personEmailChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() personGenderChange: EventEmitter<string> = new EventEmitter<string>();
     // naming convention: onSmth
     @Output() onModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() onSaveClicked: EventEmitter<void> = new EventEmitter<void>();
 
     public buttonTitle: string = "";
 
@@ -33,14 +36,32 @@ export class PersonCardComponent {
 
     public mode: ViewMode = ViewMode.ReadOnly;
 
+    public listOfGenders: string[] = [
+        "Male", "Female"
+    ]
+
     constructor() {
         this.setButtonTitle();
+        console.log("Name in constructor: ", this.personName);
+
+    }
+
+    public ngOnInit(): void {
+        console.log("Name in OnInit: ", this.personName);
     }
 
     public onToggleModeClick(): void {
+        if (this.mode == ViewMode.Edit) {
+            this.onSaveClicked.emit();
+        }
+
         this.mode = this.mode === ViewMode.ReadOnly ? ViewMode.Edit : ViewMode.ReadOnly;
         this.setButtonTitle();
         this.onModeChange.emit(this.mode === ViewMode.Edit);
+    }
+
+    public onChecked(event: any): void {
+        this.personGender = event.value;
     }
 
     public OnPersonNameChange(): void {
@@ -57,6 +78,10 @@ export class PersonCardComponent {
 
     public OnPersonEmailChange(): void {
         this.personEmailChange.emit(this.personEmail);
+    }
+
+    public OnPersonGenderChange(): void {
+        this.personGenderChange.emit(this.personGender);
     }
 
     private setButtonTitle() {
