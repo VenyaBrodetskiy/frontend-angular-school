@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ISelectableOption } from "src/app/entities";
+
 @Component({
     selector: "mf-radio-button",
     templateUrl: "./radio-button.component.html",
@@ -6,20 +8,48 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 })
 export class RadioButtonComponent {
 
-    private _defaultOptions: string[] = [
-        "option1", "option2", "option3"
+    private _defaultOptions: ISelectableOption<string>[] = [
+        {
+            title: "option1",
+            value: "opt1"
+        },
+        {
+            title: "option2",
+            value: "opt2"
+        },
+        {
+            title: "option3",
+            value: "opt3"
+        }
     ]
-    private _defaultChecked: string = "option2";
+    private _defaultOptions2: ISelectableOption<number>[] = [
+        {
+            title: "option0",
+            value: 1
+        },
+        {
+            title: "option1",
+            value: 2
+        },
+        {
+            title: "option2",
+            value: 3
+        }
+    ]
+    private _defaultChecked: string = "opt2";
+    private _defaultChecked2: number = 2;
 
-    @Input() public radioOptions: string[] = this._defaultOptions;
-    @Input() public radioChecked: string = this._defaultChecked
 
-    @Output() public radioOptionsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
-    @Output() public radioCheckedChange: EventEmitter<string> = new EventEmitter<string>();
+    @Input() public radioOptions: ISelectableOption<unknown>[] = this._defaultOptions;
+    @Input() public radioValue: unknown = this._defaultChecked;
 
-    public OnRadioChecked(value: string): void {
-        this.radioChecked = value;
-        this.radioCheckedChange.emit(this.radioChecked);
+    @Output() public radioOptionsChange: EventEmitter<ISelectableOption<unknown>[]> = new EventEmitter<ISelectableOption<unknown>[]>();
+    @Output() public radioCheckedChange: EventEmitter<unknown> = new EventEmitter<unknown>();
+
+    public OnRadioChecked(checkedOption: unknown): void {
+        this.radioValue = checkedOption;
+        this.radioCheckedChange.emit(this.radioValue);
+        console.log("new radioValue:", this.radioValue);
     }
 
 }

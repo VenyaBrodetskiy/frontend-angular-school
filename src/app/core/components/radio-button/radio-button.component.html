@@ -7,10 +7,9 @@
             type="radio" 
             name="radioButtonGroup" 
             [id]="'radio'+i"
-            [value]="option"
-            [(ngModel)]="radioChecked"
-            (change)="OnRadioChecked(option)">
-        <label [for]="'radio'+i" [textContent]="option"></label>
+            [value]="option.value"
+            [checked]="radioValue===option.value"
+            (change)="OnRadioChecked(option.value)">
+        <label [for]="'radio'+i" [textContent]="option.title"></label>
     </div>
-
 </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ISelectableOption } from "../../../entities";
 
 enum ViewMode {
     ReadOnly,
@@ -20,6 +21,7 @@ export class PersonCardComponent implements OnInit {
     @Input() personEmail: string = "defaultEmail";
     @Input() personGender: string = "defaultGender";
 
+
     // need to make name of prop + Change. Then Angular will do banana in the box automatically
     @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();
     @Output() personIdChange: EventEmitter<string> = new EventEmitter<string>();
@@ -36,8 +38,15 @@ export class PersonCardComponent implements OnInit {
 
     public mode: ViewMode = ViewMode.ReadOnly;
 
-    public listOfGenders: string[] = [
-        "Male", "Female"
+    public listOfGenders: ISelectableOption<string>[] = [
+        {
+            value: "Male",
+            title: "Men"
+        },
+        {
+            value: "Female",
+            title: "Women"
+        }
     ];
 
     public JSON = JSON;
@@ -78,7 +87,8 @@ export class PersonCardComponent implements OnInit {
         this.personEmailChange.emit(this.personEmail);
     }
 
-    public OnPersonGenderChange(): void {
+    public OnPersonGenderChange(checkedOption: unknown): void {
+        this.personGender = (checkedOption as string);
         this.personGenderChange.emit(this.personGender);
     }
 

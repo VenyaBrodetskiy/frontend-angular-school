@@ -33,8 +33,8 @@
                 </div>
                 <mf-radio-button 
                     [radioOptions]="listOfGenders"
-                    [(radioChecked)]="personGender"
-                    (radioCheckedChange)="OnPersonGenderChange()"
+                    [radioValue]="personGender"
+                    (radioCheckedChange)="OnPersonGenderChange($event)"
                     ></mf-radio-button>
             </div>
         </div>
