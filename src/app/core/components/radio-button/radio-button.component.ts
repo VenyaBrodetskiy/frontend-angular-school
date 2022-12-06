@@ -1,10 +1,4 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-
-interface IRadioChecked {
-    id: string;
-    value: string;
-}
-
 @Component({
     selector: "mf-radio-button",
     templateUrl: "./radio-button.component.html",
@@ -15,14 +9,17 @@ export class RadioButtonComponent {
     private _defaultOptions: string[] = [
         "option1", "option2", "option3"
     ]
+    private _defaultChecked: string = "option2";
 
     @Input() public radioOptions: string[] = this._defaultOptions;
+    @Input() public radioChecked: string = this._defaultChecked
 
     @Output() public radioOptionsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
-    @Output() public onChecked: EventEmitter<IRadioChecked> = new EventEmitter<IRadioChecked>();
+    @Output() public radioCheckedChange: EventEmitter<string> = new EventEmitter<string>();
 
-    public OnRadioChecked(id: string, value: string): void {
-        this.onChecked.emit({ id: id, value: value });
+    public OnRadioChecked(value: string): void {
+        this.radioChecked = value;
+        this.radioCheckedChange.emit(this.radioChecked);
     }
 
 }

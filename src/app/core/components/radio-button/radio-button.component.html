@@ -1,13 +1,15 @@
 <div class="mf-radio-button">
 
-    <div *ngFor="let option of radioOptions; let i = index" class="my-radio"
+    <div *ngFor="let option of radioOptions; let i = index" 
+        class="my-radio"
         >
         <input 
             type="radio" 
             name="radioButtonGroup" 
             [id]="'radio'+i"
             [value]="option"
-            (change)="OnRadioChecked('radio'+i, option)">
+            [(ngModel)]="radioChecked"
+            (change)="OnRadioChecked(option)">
         <label [for]="'radio'+i" [textContent]="option"></label>
     </div>
 

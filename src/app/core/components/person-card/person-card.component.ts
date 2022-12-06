@@ -38,7 +38,9 @@ export class PersonCardComponent implements OnInit {
 
     public listOfGenders: string[] = [
         "Male", "Female"
-    ]
+    ];
+
+    public JSON = JSON;
 
     constructor() {
         this.setButtonTitle();
@@ -58,10 +60,6 @@ export class PersonCardComponent implements OnInit {
         this.mode = this.mode === ViewMode.ReadOnly ? ViewMode.Edit : ViewMode.ReadOnly;
         this.setButtonTitle();
         this.onModeChange.emit(this.mode === ViewMode.Edit);
-    }
-
-    public onChecked(event: any): void {
-        this.personGender = event.value;
     }
 
     public OnPersonNameChange(): void {

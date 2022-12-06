@@ -22,29 +22,31 @@ export class PersonsPage {
 
     public JSON = JSON;
 
-    public persons: IPerson[] | null = null;
-    // [
-    //     {
-    //         name: "Venya",
-    //         id: "1",
-    //         address: "HaNeemanim",
-    //         email: "my@email.com"
-    //     },
-    //     {
-    //         name: "John",
-    //         id: "2",
-    //         address: "Haifa",
-    //         email: "my2@email.com"
-    //     }
-    // ]
+    public persons: IPerson[] | null =
+        [
+            {
+                name: "Venya",
+                id: "1",
+                address: "HaNeemanim",
+                email: "my@email.com",
+                gender: "Male"
+            },
+            {
+                name: "John",
+                id: "2",
+                address: "Haifa",
+                email: "my2@email.com",
+                gender: "Male"
+            }
+        ];
 
-    public person: IPerson = {
-        name: "Venya",
-        id: "1",
-        address: "HaNeemanim",
-        email: "my@email.com",
-        gender: "Male"
-    }
+    // public person: IPerson = {
+    //     name: "Venya",
+    //     id: "1",
+    //     address: "HaNeemanim",
+    //     email: "my@email.com",
+    //     gender: "Male"
+    // }
 
     public cardMessage: string = "";
 
