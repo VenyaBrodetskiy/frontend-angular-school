@@ -9,6 +9,17 @@ enum ViewMode {
 const Edit: string = "Edit";
 const Save: string = "Save";
 
+const listOfGenders: ISelectableOption<string>[] = [
+    {
+        value: "Male",
+        title: "Men"
+    },
+    {
+        value: "Female",
+        title: "Women"
+    }
+];
+
 @Component({
     selector: "mf-person-card",
     templateUrl: "./person-card.component.html",
@@ -20,7 +31,7 @@ export class PersonCardComponent implements OnInit {
     @Input() personAddress: string = "defaultAddr";
     @Input() personEmail: string = "defaultEmail";
     @Input() personGender: string = "defaultGender";
-
+    @Input() radioButtonName: string = "defaultRadioButtonName";
 
     // need to make name of prop + Change. Then Angular will do banana in the box automatically
     @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();
@@ -33,21 +44,9 @@ export class PersonCardComponent implements OnInit {
     @Output() onSaveClicked: EventEmitter<void> = new EventEmitter<void>();
 
     public buttonTitle: string = "";
-
     public ViewMode = ViewMode;
-
     public mode: ViewMode = ViewMode.ReadOnly;
-
-    public listOfGenders: ISelectableOption<string>[] = [
-        {
-            value: "Male",
-            title: "Men"
-        },
-        {
-            value: "Female",
-            title: "Women"
-        }
-    ];
+    public listOfGenders: ISelectableOption<string>[] = listOfGenders;
 
     constructor() {
         this.setButtonTitle();

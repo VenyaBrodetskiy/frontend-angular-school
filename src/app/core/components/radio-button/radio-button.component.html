@@ -5,7 +5,7 @@
         >
         <input 
             type="radio" 
-            name="radioButtonGroup" 
+            [name]="name" 
             [id]="'radio'+i"
             [value]="option.value"
             [checked]="radioValue===option.value"

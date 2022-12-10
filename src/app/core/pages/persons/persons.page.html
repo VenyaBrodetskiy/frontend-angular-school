@@ -14,6 +14,7 @@
         [(personAddress)]="person.address" 
         [(personEmail)]="person.email" 
         [(personGender)]="person.gender"
+        [radioButtonName]="'radioButtonForPersonCard' + i"
         (onModeChange)="onCardModeChanged($event, i)"
         (onSaveClicked)="onSaveClicked()">
     </mf-person-card>
