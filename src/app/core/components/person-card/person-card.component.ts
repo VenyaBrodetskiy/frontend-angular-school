@@ -49,8 +49,6 @@ export class PersonCardComponent implements OnInit {
         }
     ];
 
-    public JSON = JSON;
-
     constructor() {
         this.setButtonTitle();
         console.log("Name in constructor: ", this.personName);

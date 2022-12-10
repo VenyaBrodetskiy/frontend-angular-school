@@ -40,8 +40,8 @@ export class RadioButtonComponent {
     private _defaultChecked2: number = 2;
 
 
-    @Input() public radioOptions: ISelectableOption<unknown>[] = this._defaultOptions;
-    @Input() public radioValue: unknown = this._defaultChecked;
+    @Input() public radioOptions: ISelectableOption<unknown>[] = this._defaultOptions2;
+    @Input() public radioValue: unknown = this._defaultChecked2;
 
     @Output() public radioOptionsChange: EventEmitter<ISelectableOption<unknown>[]> = new EventEmitter<ISelectableOption<unknown>[]>();
     @Output() public radioCheckedChange: EventEmitter<unknown> = new EventEmitter<unknown>();
