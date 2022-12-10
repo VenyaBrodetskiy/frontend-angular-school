@@ -32,6 +32,7 @@
                     <input type="text" [(ngModel)]="personEmail" (keyup)="OnPersonEmailChange()"/>
                 </div>
                 <mf-radio-button 
+                    [name]="radioButtonName"
                     [radioOptions]="listOfGenders"
                     [(radioChecked)]="personGender"
                     (radioCheckedChange)="OnPersonGenderChange()"

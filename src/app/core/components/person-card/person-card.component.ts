@@ -19,6 +19,7 @@ export class PersonCardComponent implements OnInit {
     @Input() personAddress: string = "defaultAddr";
     @Input() personEmail: string = "defaultEmail";
     @Input() personGender: string = "defaultGender";
+    @Input() radioButtonName: string = "defaultRadioButton";
 
     // need to make name of prop + Change. Then Angular will do banana in the box automatically
     @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();

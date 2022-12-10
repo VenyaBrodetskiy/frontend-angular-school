@@ -5,7 +5,7 @@
         >
         <input 
             type="radio" 
-            name="radioButtonGroup" 
+            [name]="name" 
             [id]="'radio'+i"
             [value]="option"
             [(ngModel)]="radioChecked"
@@ -14,3 +14,5 @@
     </div>
 
 </div>
+
+<!-- instead of ngModel can use /* [checked]="radioChecked==option" */ -->
