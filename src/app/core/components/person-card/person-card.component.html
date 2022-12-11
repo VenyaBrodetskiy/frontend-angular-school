@@ -20,23 +20,29 @@
 
             <div *ngIf="mode === ViewMode.Edit" сlass="edit-wrapper">
                 <div>
-                    <input type="text" [(ngModel)]="personName" (keyup)="OnPersonNameChange()" />
+                    <input type="text" [(ngModel)]="personName" (keyup)="onPersonNameChange()" />
                 </div>
                 <div>
-                    <input type="text" [(ngModel)]="personId" (keyup)="OnPersonIdChange()"/>
+                    <input type="text" [(ngModel)]="personId" (keyup)="onPersonIdChange()"/>
                 </div>
                 <div>
-                    <input type="text" [(ngModel)]="personAddress" (keyup)="OnPersonAddressChange()"/>
+                    <input type="text" [(ngModel)]="personAddress" (keyup)="onPersonAddressChange()"/>
                 </div>
                 <div>
-                    <input type="text" [(ngModel)]="personEmail" (keyup)="OnPersonEmailChange()"/>
+                    <input type="text" [(ngModel)]="personEmail" (keyup)="onPersonEmailChange()"/>
                 </div>
-                <mf-radio-button 
-                    [name]="radioButtonName"
-                    [radioOptions]="listOfGenders"
+                <!-- <mf-radio-button 
+                    [name]="radioButtonName" // maybe in this case better to use uniq id
+                    [radioOptions]="genderOptions"
                     [(radioChecked)]="personGender"
-                    (radioCheckedChange)="OnPersonGenderChange()"
-                    ></mf-radio-button>
+                    (radioCheckedChange)="onPersonGenderChange()"
+                    ></mf-radio-button> -->
+
+                <mf-radio-button-ilya
+                    [options]="genderOptions"
+                    [(value)]="personGender"
+                    (valueChange)="onPersonGenderChange()"> 
+                </mf-radio-button-ilya>
             </div>
         </div>
     </div>

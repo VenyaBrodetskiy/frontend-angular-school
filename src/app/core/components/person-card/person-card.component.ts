@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Gender } from "src/app/enums";
 
 enum ViewMode {
     ReadOnly,
@@ -37,9 +38,8 @@ export class PersonCardComponent implements OnInit {
 
     public mode: ViewMode = ViewMode.ReadOnly;
 
-    public listOfGenders: string[] = [
-        "Male", "Female"
-    ];
+    public genderOptions: string[] = [Gender.Male, Gender.Female];
+
 
     public JSON = JSON;
 
@@ -63,23 +63,23 @@ export class PersonCardComponent implements OnInit {
         this.onModeChange.emit(this.mode === ViewMode.Edit);
     }
 
-    public OnPersonNameChange(): void {
+    public onPersonNameChange(): void {
         this.personNameChange.emit(this.personName);
     }
 
-    public OnPersonIdChange(): void {
+    public onPersonIdChange(): void {
         this.personIdChange.emit(this.personId);
     }
 
-    public OnPersonAddressChange(): void {
+    public onPersonAddressChange(): void {
         this.personAddressChange.emit(this.personAddress);
     }
 
-    public OnPersonEmailChange(): void {
+    public onPersonEmailChange(): void {
         this.personEmailChange.emit(this.personEmail);
     }
 
-    public OnPersonGenderChange(): void {
+    public onPersonGenderChange(): void {
         this.personGenderChange.emit(this.personGender);
     }
 
