@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ISelectableOption } from "src/app/entities";
+import { ICheckBoxOption, ISelectableOption } from "src/app/entities";
 import { Layout } from "src/app/enums";
 import { IPerson } from "../../../entities";
 import { PersonService } from "../../services/person.service";
@@ -21,6 +21,13 @@ export class PersonsPage {
     public selectedPersonLayout: Layout = Layout.Vertical;
 
     public cardMessage: string = "";
+
+    public optionsCheckBox: ICheckBoxOption[] = [
+        { title: "option1", checked: false },
+        { title: "option2", checked: true },
+        { title: "option3", checked: false },
+        { title: "option4", checked: false }
+    ];
 
     constructor(
         public personService: PersonService

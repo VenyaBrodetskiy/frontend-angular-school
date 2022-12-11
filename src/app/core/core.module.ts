@@ -11,6 +11,7 @@ import { RadioButtonIlyaComponent } from './components/radio-button-ilya/radio-b
 import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component'
 import { DoublePipe } from "./pipes/double.pipe";
 import { PersonService } from "./services/person.service";
+import { CheckBoxComponent } from './components/check-box/check-box.component';
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
@@ -27,7 +28,8 @@ const routes: Routes = [
         RadioButtonComponent,
         RadioButtonIlyaComponent,
         GenericRadioButtonComponent,
-        DoublePipe
+        DoublePipe,
+        CheckBoxComponent
     ],
     imports: [
         FormsModule,

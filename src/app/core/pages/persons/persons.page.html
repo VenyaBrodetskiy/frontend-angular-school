@@ -1,10 +1,18 @@
 <div class="persons-page">
 
+    <mf-check-box
+        [(options)]="optionsCheckBox"
+        >
+    </mf-check-box>
+    {{ JSON.stringify(optionsCheckBox) }}
+
+    <br>
+    <br>
+
     <mf-generic-radio-button
         [options]="layoutOptions"
         [layout]="Layout.Horizontal"
         [(value)]="selectedPersonLayout">
-
     </mf-generic-radio-button>
 
     <mf-generic-radio-button
@@ -12,7 +20,6 @@
         [layout]="selectedPersonLayout"
         [isMultiselect]="false"
         [(value)]="selectedPerson">
-
     </mf-generic-radio-button>
 
     <div class="clear-fix"></div>

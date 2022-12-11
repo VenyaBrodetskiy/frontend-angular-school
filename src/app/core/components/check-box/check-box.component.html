@@ -1,0 +1,16 @@
+<div class="mf-check-box">
+    <div *ngFor="let option of options; index as i">
+        <input 
+            type="checkbox" 
+            [id]="unique + i" 
+            [name]="unique" 
+            [value]="option.title"
+            [checked]="option.checked"
+            (change)="onChange(i)"
+            />
+        <label 
+            [for]="unique + i"
+            [innerText]="option.title">
+            </label>
+    </div>
+</div>

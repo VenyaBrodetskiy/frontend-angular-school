@@ -3,6 +3,11 @@ export interface ISelectableOption<T> {
     value: T;
 }
 
+export interface ICheckBoxOption {
+    title: string;
+    checked: boolean;
+}
+
 export interface IPerson {
     name: string;
     id: string;
