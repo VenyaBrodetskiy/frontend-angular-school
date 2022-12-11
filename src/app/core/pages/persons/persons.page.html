@@ -3,29 +3,25 @@
     <mf-generic-radio-button
         [options]="layoutOptions"
         [layout]="Layout.Horizontal"
-        [(value)]="selectedPersonLayout"
-        >
+        [(value)]="selectedPersonLayout">
 
     </mf-generic-radio-button>
 
     <mf-generic-radio-button
         [options]="personOptions"
         [layout]="selectedPersonLayout"
-        [(value)]="selectedPerson"
-        [isMultiselect]="true"
-        >
+        [isMultiselect]="false"
+        [(value)]="selectedPerson">
 
     </mf-generic-radio-button>
-    {{ JSON.stringify(selectedPerson)}}
 
     <div class="clear-fix"></div>
     
     <br>
-    {{ "Person name: " + JSON.stringify(persons) }}
     
     <div [innerHTML]="cardMessage"></div>
     <!-- how to use FOR in HTML using ANGULAR -->
-    <mf-person-card *ngFor="let person of persons; index as i" 
+    <mf-person-card *ngFor="let person of personService.persons; index as i" 
         [(personName)]="person.name" 
         [(personId)]="person.id"
         [(personAddress)]="person.address" 

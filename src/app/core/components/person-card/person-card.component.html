@@ -36,18 +36,26 @@
                 <div>
                     <input type="text" [(ngModel)]="personEmail" (keyup)="onPersonEmailChange()"/>
                 </div>
-                <!-- <mf-radio-button 
-                    [name]="radioButtonName" // maybe in this case better to use uniq id
-                    [radioOptions]="genderOptions"
-                    [(radioChecked)]="personGender"
-                    (radioCheckedChange)="onPersonGenderChange()"
-                    ></mf-radio-button> -->
-
-                <mf-radio-button-ilya
-                    [options]="genderOptions"
-                    [(value)]="personGender"
-                    (valueChange)="onPersonGenderChange()"> 
-                </mf-radio-button-ilya>
+                <div>
+                    <!-- <mf-radio-button 
+                        [name]="radioButtonName" // maybe in this case better to use uniq id
+                        [radioOptions]="genderOptions"
+                        [(radioChecked)]="personGender"
+                        (radioCheckedChange)="onPersonGenderChange()"
+                        ></mf-radio-button> -->
+    
+                    <mf-radio-button-ilya
+                        [options]="genderOptions"
+                        [(value)]="personGender"
+                        (valueChange)="onPersonGenderChange()"> 
+                    </mf-radio-button-ilya>
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="personBirthday" (keyup)="onPersonBirthdayChange()" />
+                </div>
+                <div>
+                    <input type="text" [(ngModel)]="personSalary" (keyup)="onPersonSalaryChange()" />
+                </div>
             </div>
         </div>
     </div>

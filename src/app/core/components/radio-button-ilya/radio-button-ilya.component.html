@@ -1,7 +1,9 @@
 <div class="mf-radio-button-ilya">
-    <div *ngFor="let option of options; index as i">
+    <div class="rb-wrap" 
+        *ngFor="let option of options; index as i">
         <input 
             type="radio" 
+            
             [id]="unique + i" 
             [name]="unique" 
             [value]="option"

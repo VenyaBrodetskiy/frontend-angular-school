@@ -10,6 +10,7 @@ import { RadioButtonComponent } from './components/radio-button/radio-button.com
 import { RadioButtonIlyaComponent } from './components/radio-button-ilya/radio-button-ilya.component';
 import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component'
 import { DoublePipe } from "./pipes/double.pipe";
+import { PersonService } from "./services/person.service";
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
@@ -38,5 +39,9 @@ const routes: Routes = [
     ]
 })
 export class CoreModule {
-
+    constructor(
+        personService: PersonService
+    ) {
+        personService.initialize();
+    }
 }

@@ -30,6 +30,8 @@ export class PersonCardComponent implements OnInit {
     @Output() personAddressChange: EventEmitter<string> = new EventEmitter<string>();
     @Output() personEmailChange: EventEmitter<string> = new EventEmitter<string>();
     @Output() personGenderChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() personBirthdayChange: EventEmitter<Date> = new EventEmitter<Date>();
+    @Output() personSalaryChange: EventEmitter<number> = new EventEmitter<number>();
     // naming convention: onSmth
     @Output() onModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() onSaveClicked: EventEmitter<void> = new EventEmitter<void>();
@@ -83,6 +85,14 @@ export class PersonCardComponent implements OnInit {
 
     public onPersonGenderChange(): void {
         this.personGenderChange.emit(this.personGender);
+    }
+
+    public onPersonBirthdayChange(): void {
+        this.personBirthdayChange.emit(this.personBirthday);
+    }
+
+    public onPersonSalaryChange(): void {
+        this.personSalaryChange.emit(this.personSalary);
     }
 
     private setButtonTitle() {
