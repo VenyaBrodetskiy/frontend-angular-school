@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { LocalStorageKeys } from "src/app/constants";
+import { ISelectableOption } from "src/app/entities";
+import { Layout } from "src/app/enums";
 import { LocalStorageService } from "../../services/local-storage.service";
 
 interface IPerson {
@@ -21,6 +23,7 @@ export class PersonsPage {
     public htmlProperty: string = "<i>La-la!!</i>";
 
     public JSON = JSON;
+    public Layout = Layout;
 
     public persons: IPerson[] | null =
         [
@@ -39,14 +42,11 @@ export class PersonsPage {
                 gender: "Male"
             }
         ];
+    public personOptions: ISelectableOption<IPerson>[] = [];
+    public selectedPerson: IPerson | null = null;
 
-    // public person: IPerson = {
-    //     name: "Venya",
-    //     id: "1",
-    //     address: "HaNeemanim",
-    //     email: "my@email.com",
-    //     gender: "Male"
-    // }
+    public layoutOptions: ISelectableOption<Layout>[] = [];
+    public selectedPersonLayout: Layout = Layout.Vertical;
 
     public cardMessage: string = "";
 
@@ -56,7 +56,27 @@ export class PersonsPage {
 
     }
     public ngOnInit(): void {
+
+        this.layoutOptions.push({
+            title: Layout.Horizontal,
+            value: Layout.Horizontal
+        });
+
+        this.layoutOptions.push({
+            title: Layout.Vertical,
+            value: Layout.Vertical
+        });
+
         this.persons = this.localStorageService.get(LocalStorageKeys.PERSONS);
+
+        if (this.persons) {
+            this.personOptions = this.persons.map((person: IPerson) => {
+                return {
+                    title: person.name,
+                    value: person
+                };
+            })
+        }
     }
 
     public onClickMeClick(): void {

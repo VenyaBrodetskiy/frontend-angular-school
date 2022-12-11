@@ -1,5 +1,22 @@
 <div class="persons-page">
 
+    <mf-generic-radio-button
+        [options]="layoutOptions"
+        [layout]="Layout.Horizontal"
+        [(value)]="selectedPersonLayout"
+        >
+
+    </mf-generic-radio-button>
+
+    <mf-generic-radio-button
+        [options]="personOptions"
+        [layout]="selectedPersonLayout"
+        [(value)]="selectedPerson"
+        >
+
+    </mf-generic-radio-button>
+    {{ JSON.stringify(selectedPerson)}}
+
     <div class="clear-fix"></div>
     
     <br>

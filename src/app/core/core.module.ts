@@ -7,7 +7,8 @@ import { PersonsPage } from "./pages/persons/persons.page";
 import { States } from "../constants";
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
-import { RadioButtonIlyaComponent } from './components/radio-button-ilya/radio-button-ilya.component'
+import { RadioButtonIlyaComponent } from './components/radio-button-ilya/radio-button-ilya.component';
+import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component'
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
@@ -22,7 +23,8 @@ const routes: Routes = [
         PersonsPage,
         NotFoundPage,
         RadioButtonComponent,
-        RadioButtonIlyaComponent
+        RadioButtonIlyaComponent,
+        GenericRadioButtonComponent
     ],
     imports: [
         FormsModule,
