@@ -10,6 +10,8 @@ interface IPerson {
     address: string;
     email: string;
     gender: string;
+    birthdate: Date;
+    salary: number;
 }
 
 @Component({
@@ -32,14 +34,18 @@ export class PersonsPage {
                 id: "1",
                 address: "HaNeemanim",
                 email: "my@email.com",
-                gender: "Male"
+                gender: "Male",
+                birthdate: new Date(1980, 1, 1),
+                salary: 10000
             },
             {
                 name: "John",
                 id: "2",
                 address: "Haifa",
                 email: "my2@email.com",
-                gender: "Male"
+                gender: "Male",
+                birthdate: new Date(1990, 2, 2),
+                salary: 15000
             }
         ];
     public personOptions: ISelectableOption<IPerson>[] = [];
@@ -67,7 +73,7 @@ export class PersonsPage {
             value: Layout.Vertical
         });
 
-        this.persons = this.localStorageService.get(LocalStorageKeys.PERSONS);
+        // this.persons = this.localStorageService.get(LocalStorageKeys.PERSONS);
 
         if (this.persons) {
             this.personOptions = this.persons.map((person: IPerson) => {

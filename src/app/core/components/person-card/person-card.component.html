@@ -6,6 +6,9 @@
             <div class="table-info">address</div>
             <div class="table-info">email</div>
             <div class="table-info">Gender</div>
+            <div class="table-info">Birthday</div>
+            <div class="table-info">Salary</div>
+
         </div>
     
         <div class="right">
@@ -16,6 +19,8 @@
                 <div class="table-info" [innerText]="personAddress"></div>
                 <div class="table-info" [innerText]="personEmail"></div>
                 <div class="table-info" [innerText]="personGender"></div>
+                <div class="table-info" [innerText]="personBirthday | date : 'dd MMM yyyy'"></div>
+                <div class="table-info" [innerText]="personSalary | doubleMe | currency : 'CAD'"></div>
             </div>
 
             <div *ngIf="mode === ViewMode.Edit" сlass="edit-wrapper">

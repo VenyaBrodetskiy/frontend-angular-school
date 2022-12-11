@@ -12,6 +12,7 @@
         [options]="personOptions"
         [layout]="selectedPersonLayout"
         [(value)]="selectedPerson"
+        [isMultiselect]="true"
         >
 
     </mf-generic-radio-button>
@@ -30,6 +31,8 @@
         [(personAddress)]="person.address" 
         [(personEmail)]="person.email" 
         [(personGender)]="person.gender"
+        [personBirthday]="person.birthdate"
+        [personSalary]="person.salary"
         (onModeChange)="onCardModeChanged($event, i)"
         (onSaveClicked)="onSaveClicked()">
     </mf-person-card>
