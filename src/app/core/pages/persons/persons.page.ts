@@ -15,10 +15,10 @@ export class PersonsPage {
     public Layout = Layout;
 
     public personOptions: ISelectableOption<IPerson>[] = [];
-    public selectedPerson: IPerson | null = null;
+    public selectedPersons: IPerson[] = [];
 
     public layoutOptions: ISelectableOption<Layout>[] = [];
-    public selectedPersonLayout: Layout = Layout.Vertical;
+    public selectedPersonLayout: Layout[] = []; //[Layout.Vertical];
 
     public cardMessage: string = "";
 
@@ -54,9 +54,9 @@ export class PersonsPage {
             })
         }
 
-        this.selectedPerson = this.personService.persons.length > 0 ?
-            this.personService.persons[0]
-            : null;
+        this.selectedPersons = this.personService.persons.length > 0 ?
+            [this.personService.persons[0]]
+            : [];
     }
 
     public onCardModeChanged(isEdit: boolean, index: number) {

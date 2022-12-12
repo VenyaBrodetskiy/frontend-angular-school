@@ -8,7 +8,7 @@ import { States } from "../constants";
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioButtonIlyaComponent } from './components/radio-button-ilya/radio-button-ilya.component';
-import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component'
+import { GenericMultiselectComponent } from './components/generic-radio-button/generic-multiselect.component'
 import { DoublePipe } from "./pipes/double.pipe";
 import { PersonService } from "./services/person.service";
 import { CheckBoxComponent } from './components/check-box/check-box.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
         NotFoundPage,
         RadioButtonComponent,
         RadioButtonIlyaComponent,
-        GenericRadioButtonComponent,
+        GenericMultiselectComponent,
         DoublePipe,
         CheckBoxComponent
     ],
