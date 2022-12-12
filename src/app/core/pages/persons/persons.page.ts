@@ -69,6 +69,6 @@ export class PersonsPage {
     }
 
     public onSaveClicked(): void {
-        this.personService.saveToStorage();
+        this.personService.save();
     }
 }

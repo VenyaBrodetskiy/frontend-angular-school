@@ -17,7 +17,7 @@ interface IPersonService {
     persons: IPerson[];
 
     initialize(): void;
-    saveToStorage(): void;
+    save(): void;
 }
 
 // const persons: IPerson[] | null = [
@@ -63,7 +63,7 @@ export class PersonService implements IPersonService {
         }
     }
 
-    public saveToStorage(): void {
+    public save(): void {
         this.localStorageService.set(LocalStorageKeys.PERSONS, this._persons);
     }
 

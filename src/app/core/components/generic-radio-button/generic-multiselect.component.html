@@ -4,12 +4,12 @@
         class="option-wrapper"
         [ngClass]="{
             'horizontal': layout === Layout.Horizontal, 
-            'vertical': layout === Layout.Vertical}"
-    >
+            'vertical': layout === Layout.Vertical}">
+        
         <div 
             class="option-switch-wrapper"
-            [ngSwitch]="isMultiselect"
-        >
+            [ngSwitch]="isMultiselect">
+            
             <input 
                 *ngSwitchCase="false"
                 type="radio" 
@@ -17,20 +17,20 @@
                 [name]="unique" 
                 [value]="option.value"
                 [(ngModel)]="value && value.length === 1 ? value[0] : value"
-                (change)="onChange(option.value)" 
-            />
+                (change)="onChange(option.value)"/>
             <input 
                 *ngSwitchCase="true"
                 type="checkbox" 
                 [id]="unique + i" 
                 [checked]="value ? value.indexOf(option.value) > -1 : false"
-                (change)="onChange(option.value)" 
-            />
+                (change)="onChange(option.value)"/>
         </div>
+
             <label 
                 class="option-title"
                 [for]="unique + i" 
                 [innerText]="option.title">
             </label>
+
     </div>
 </div>
