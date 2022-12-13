@@ -12,9 +12,14 @@ import { GenericMultiselectComponent } from './components/generic-radio-button/g
 import { DoublePipe } from "./pipes/double.pipe";
 import { PersonService } from "./services/person.service";
 import { CheckBoxComponent } from './components/check-box/check-box.component';
+import { RxjsComponent } from "./pages/rxjs/rxjs.page";
+import { LoginPage } from './pages/login/login.page';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
+    { path: States.login, component: LoginPage },
+    { path: States.rjxs, component: RxjsComponent },
     { path: States.radioButton, component: RadioButtonComponent },
     { path: States.personCard, component: PersonCardComponent },
     { path: "**", component: NotFoundPage }
@@ -29,12 +34,15 @@ const routes: Routes = [
         RadioButtonIlyaComponent,
         GenericMultiselectComponent,
         DoublePipe,
-        CheckBoxComponent
+        CheckBoxComponent,
+        RxjsComponent,
+        LoginPage
     ],
     imports: [
         FormsModule,
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        HttpClientModule
     ],
     exports: [
         PersonCardComponent

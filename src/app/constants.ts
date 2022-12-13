@@ -5,9 +5,17 @@ export class LocalStorageKeys {
 export class States {
     // pages
     public static persons: string = "persons";
+    public static rjxs: string = "rxjs";
+    public static login: string = "login";
 
     // components
     public static radioButton: string = "radio-button";
     public static personCard: string = "person-card";
+}
 
+export class Endpoints {
+    private static baseUrl: string = "http://localhost:6060/";
+
+    public static login: string = `${this.baseUrl}auth/login`;
+    public static userById: string = `${Endpoints.baseUrl}user/`;
 }
