@@ -7,6 +7,7 @@ export class States {
     public static persons: string = "persons";
     public static rjxs: string = "rxjs";
     public static login: string = "login";
+    public static flexBasics: string = "flex-basics";
 
     // components
     public static radioButton: string = "radio-button";

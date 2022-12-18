@@ -23,4 +23,27 @@
 body {
     font-size: @font-base-size;
     font-family: @font-family;
+    margin: 0;
+    overflow: hidden;
+}
+
+// all sizes up to width 800px
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: @font-min-size;
+    }
+}
+
+// from 800px to 1024px
+@media only screen and (min-width: 800px) {
+    body {
+        font-size: @font-base-size;
+    }
+}
+
+// from 1024px
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: @font-max-size;
+    }
 }

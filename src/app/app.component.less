@@ -1,15 +1,44 @@
 @import "../assets/styles/theme.less";
+@import "../assets/styles/flex.less";
 
 .mf-app-component {
+    height: 100vh;
     color: @brand-color;
-    .title;    
 
-    
+    .title;
 
     .table-info {
         border: 1px solid black;
     }
+
+    .mf-layout-wrapper {
+        height: 100%;
+
+        .mf-header {
+            min-height: @header-height;
+            .title;
+        }
+        .mf-menu {
+            min-width: 25%;
+            .title;
+        }
+        .mf-content {
+            max-height: calc(100vh - @header-height - @footer-height);
+            overflow-y: auto;
+        }
+        .mf-footer {
+            min-height: @footer-height;
+            .title;
+        }
+
+        .mf-header,
+        .mf-menu,
+        .mf-content,
+        .mf-footer {
+            border: 1px solid @brand-color;
+        }
+    }
+
+
 }
-
-
 

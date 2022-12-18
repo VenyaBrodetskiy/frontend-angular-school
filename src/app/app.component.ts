@@ -7,4 +7,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
     title = "frontend-nodejs-school";
+
+    public isRtl: boolean = false;
 }

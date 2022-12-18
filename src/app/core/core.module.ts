@@ -15,6 +15,7 @@ import { CheckBoxComponent } from './components/check-box/check-box.component';
 import { RxjsComponent } from "./pages/rxjs/rxjs.page";
 import { LoginPage } from './pages/login/login.page';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexBasicsPage } from './pages/flex-basics/flex-basics.page';
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
@@ -22,6 +23,7 @@ const routes: Routes = [
     { path: States.rjxs, component: RxjsComponent },
     { path: States.radioButton, component: RadioButtonComponent },
     { path: States.personCard, component: PersonCardComponent },
+    { path: States.flexBasics, component: FlexBasicsPage },
     { path: "**", component: NotFoundPage }
 ]
 
@@ -36,7 +38,8 @@ const routes: Routes = [
         DoublePipe,
         CheckBoxComponent,
         RxjsComponent,
-        LoginPage
+        LoginPage,
+        FlexBasicsPage
     ],
     imports: [
         FormsModule,
