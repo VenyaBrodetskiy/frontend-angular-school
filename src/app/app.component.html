@@ -8,15 +8,32 @@
             [ngClass]="
                 {'mf-flex-row-reverse': isRtl,
                 'mf-flex-row': !isRtl}">
-            <div class="mf-flex mf-flex-center mf-menu ">
-                Menu
+            <div class="mf-menu title">
+                <button
+                    mat-stroked-button
+                    color="basic"
+                    class="full-width"
+                    [routerLink]="States.persons"
+                    >
+                    Person
+                </button>
+                <button
+                    mat-stroked-button
+                    color="basic"
+                    class="full-width"
+                    [routerLink]="States.flexBasics"
+                    >
+                    Flex-basics
+                </button>
+
             </div>
             <div class="mf-flex mf-flex-column mf-flex-col-1 mf-content-footer-wrapper">
                 <div class="mf-flex-col-1 mf-content">
                     <router-outlet></router-outlet>
                 </div>
-                <div class="mf-flex mf-flex-center mf-footer">
-                    Footer
+                <div
+                    class="mf-flex mf-flex-center mf-footer"
+                    [innerText]="layoutService.footerMessage">
                 </div>
 
             </div>

@@ -1,3 +1,4 @@
+import { LayoutService } from './../../../services/layout.service';
 import { Component } from "@angular/core";
 import { ICheckBoxOption, ISelectableOption } from "src/app/entities";
 import { Layout } from "src/app/enums";
@@ -30,8 +31,11 @@ export class PersonsPage {
     ];
 
     constructor(
-        public personService: PersonService
-    ) { }
+        public personService: PersonService,
+        layoutService: LayoutService
+    ) {
+        layoutService.footerMessage = "now we are on persons page";
+    }
 
     public ngOnInit(): void {
 
