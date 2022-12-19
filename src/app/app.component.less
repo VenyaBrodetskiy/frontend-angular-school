@@ -5,8 +5,6 @@
     height: 100vh;
     color: @brand-color;
 
-    .title;
-
     .table-info {
         border: 1px solid black;
     }
@@ -16,19 +14,14 @@
 
         .mf-header {
             min-height: @header-height;
-            .title;
-        }
-        .mf-menu {
-            min-width: 25%;
-            .title;
-        }
-        .mf-content {
-            max-height: calc(100vh - @header-height - @footer-height);
-            overflow-y: auto;
-        }
-        .mf-footer {
-            min-height: @footer-height;
-            .title;
+            position: relative;
+
+            .mf-toggle-direction {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
         }
 
         .mf-header,
@@ -37,8 +30,52 @@
         .mf-footer {
             border: 1px solid @brand-color;
         }
+
+        .mf-menu-rest-wrapper {
+            height: calc(100% - @header-height - @border-width - @border-width);
+
+            .mf-menu {
+                min-width: 25%;
+
+                .title {
+                    .mat-basic {
+                        color: red;
+                    }
+
+                }
+            }
+
+            .mf-content {
+                max-height: calc(100vh - @footer-height);
+                overflow-y: auto;
+            }
+            .mf-footer {
+                min-height: @footer-height;
+            }
+        }
+
+
     }
 
+    // better to keep these classes in the end
+    &.mf-ltr {
+        .mf-layout-wrapper {
+            .mf-header {
+                .mf-toggle-direction {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &.mf-rtl {
+        .mf-layout-wrapper {
+            .mf-header {
+                .mf-toggle-direction {
+                    right: 0;
+                }
+            }
+        }
+    }
 
 }
-

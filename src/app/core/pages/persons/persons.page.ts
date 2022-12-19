@@ -1,5 +1,6 @@
+import { Subscription } from 'rxjs';
 import { LayoutService } from './../../../services/layout.service';
-import { Component } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ICheckBoxOption, ISelectableOption } from "src/app/entities";
 import { Layout } from "src/app/enums";
 import { IPerson } from "../../../entities";
@@ -10,7 +11,7 @@ import { PersonService } from "../../services/person.service";
     templateUrl: "./persons.page.html",
     styleUrls: ["./persons.page.less"]
 })
-export class PersonsPage {
+export class PersonsPage implements OnInit, OnDestroy {
 
     public JSON = JSON;
     public Layout = Layout;
@@ -30,11 +31,17 @@ export class PersonsPage {
         { title: "option4", checked: false }
     ];
 
+    private _subscriptions: Subscription[] = [];
+
     constructor(
         public personService: PersonService,
         layoutService: LayoutService
     ) {
         layoutService.footerMessage = "now we are on persons page";
+
+        this._subscriptions.push(layoutService.onLayoutDirectionChanged.subscribe(() => {
+            console.log("Persons page: layout changed happened")
+        }));
     }
 
     public ngOnInit(): void {
@@ -61,6 +68,10 @@ export class PersonsPage {
         this.selectedPersons = this.personService.persons.length > 0 ?
             [this.personService.persons[0]]
             : [];
+    }
+
+    public ngOnDestroy(): void {
+        this._subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
     }
 
     public onCardModeChanged(isEdit: boolean, index: number) {

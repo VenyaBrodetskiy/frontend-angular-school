@@ -49,12 +49,12 @@ export class PersonCardComponent implements OnInit {
 
     constructor() {
         this.setButtonTitle();
-        console.log("Name in constructor: ", this.personName);
+        // console.log("Name in constructor: ", this.personName); // still null
 
     }
 
     public ngOnInit(): void {
-        console.log("Name in OnInit: ", this.personName);
+        // console.log("Name in OnInit: ", this.personName); // here is set
     }
 
     public onToggleModeClick(): void {
