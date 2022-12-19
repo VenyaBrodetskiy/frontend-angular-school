@@ -1,14 +1,20 @@
-import { Component, IterableDiffers, OnInit } from "@angular/core";
+import { LayoutService } from './../../../services/layout.service';
+import { Component } from "@angular/core";
 import { map, Observable, Observer, of, Subscription, tap } from "rxjs";
+import { BasePage } from "../base.page";
+import { States } from 'src/app/constants';
 
 @Component({
     selector: "mf-rxjs",
     templateUrl: "./rxjs.page.html",
     styleUrls: ["./rxjs.page.css"]
 })
-export class RxjsComponent {
+export class RxjsComponent extends BasePage {
 
-    constructor() {
+    constructor(
+        layoutService: LayoutService
+    ) {
+        super(layoutService, States.rjxs);
         // this.simpleSubscribtion();
 
         // this.fullSubscription();
@@ -16,6 +22,10 @@ export class RxjsComponent {
         this.subscriptionWithTap();
 
         this.subscriptionWithMap();
+
+    }
+
+    protected initialize(): void {
 
     }
 

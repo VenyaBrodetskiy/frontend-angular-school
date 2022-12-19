@@ -31,11 +31,11 @@ export class GenericMultiselectComponent<T> implements OnInit, AfterViewInit {
     ) { }
 
     public ngOnInit(): void {
-        console.log(this.element);
+        // console.log(this.element);
     }
 
     public ngAfterViewInit(): void {
-        console.log(this.optionsWrapper);
+        // console.log(this.optionsWrapper);
 
         const wrapper: HTMLDivElement = this.optionsWrapper?.nativeElement;
         wrapper.style.backgroundColor = "silver";

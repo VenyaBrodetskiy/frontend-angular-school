@@ -1,5 +1,5 @@
 import { LayoutService } from './services/layout.service';
-import { NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
@@ -9,6 +9,7 @@ import { AppComponent } from "./app.component";
 import { CoreModule } from "./core/core.module";
 import { CommonModule } from "@angular/common";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SystemErrorHandler } from './error-handler';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         FormsModule,
         CommonModule
     ],
-    providers: [],
+    providers: [
+        { provide: ErrorHandler, useClass: SystemErrorHandler }
+    ],
     bootstrap: [AppComponent]
 })
 

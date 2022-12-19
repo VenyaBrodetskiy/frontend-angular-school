@@ -5,13 +5,15 @@ import { ICheckBoxOption, ISelectableOption } from "src/app/entities";
 import { Layout } from "src/app/enums";
 import { IPerson } from "../../../entities";
 import { PersonService } from "../../services/person.service";
+import { BasePage } from '../base.page';
+import { States } from 'src/app/constants';
 
 @Component({
     selector: "mf-persons.page",
     templateUrl: "./persons.page.html",
     styleUrls: ["./persons.page.less"]
 })
-export class PersonsPage implements OnInit, OnDestroy {
+export class PersonsPage extends BasePage {
 
     public JSON = JSON;
     public Layout = Layout;
@@ -31,20 +33,17 @@ export class PersonsPage implements OnInit, OnDestroy {
         { title: "option4", checked: false }
     ];
 
-    private _subscriptions: Subscription[] = [];
-
     constructor(
         public personService: PersonService,
         layoutService: LayoutService
     ) {
+        super(layoutService, States.persons);
+
         layoutService.footerMessage = "now we are on persons page";
 
-        this._subscriptions.push(layoutService.onLayoutDirectionChanged.subscribe(() => {
-            console.log("Persons page: layout changed happened")
-        }));
     }
 
-    public ngOnInit(): void {
+    protected initialize(): void {
 
         this.layoutOptions.push({
             title: Layout.Horizontal,
@@ -68,10 +67,6 @@ export class PersonsPage implements OnInit, OnDestroy {
         this.selectedPersons = this.personService.persons.length > 0 ?
             [this.personService.persons[0]]
             : [];
-    }
-
-    public ngOnDestroy(): void {
-        this._subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
     }
 
     public onCardModeChanged(isEdit: boolean, index: number) {
