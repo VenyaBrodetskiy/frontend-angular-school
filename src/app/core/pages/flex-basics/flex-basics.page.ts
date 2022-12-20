@@ -17,6 +17,7 @@ export class FlexBasicsPage extends BasePage {
     }
 
     protected initialize(): void {
+        // this is just to generate exception, here no meaning in code
         (this.X as any).raise.error = "12";
     }
 

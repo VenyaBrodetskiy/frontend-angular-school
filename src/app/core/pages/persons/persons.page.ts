@@ -33,6 +33,9 @@ export class PersonsPage extends BasePage {
         { title: "option4", checked: false }
     ];
 
+    public filteredPersons: IPerson[] = [];
+    public filteredPersonBy = "";
+
     constructor(
         public personService: PersonService,
         layoutService: LayoutService
@@ -64,9 +67,7 @@ export class PersonsPage extends BasePage {
             })
         }
 
-        this.selectedPersons = this.personService.persons.length > 0 ?
-            [this.personService.persons[0]]
-            : [];
+        this.filteredPersons = this.personService.persons;
     }
 
     public onCardModeChanged(isEdit: boolean, index: number) {
@@ -80,5 +81,12 @@ export class PersonsPage extends BasePage {
 
     public onSaveClicked(): void {
         this.personService.save();
+    }
+
+    public onFilterPersonChange(): void {
+        const filterBy: string = this.filteredPersonBy.toLowerCase();
+        this.filteredPersons = this.personService.persons.filter((person: IPerson) => {
+            return person.name.toLowerCase().indexOf(filterBy) > -1 || person.email.toLowerCase().indexOf(filterBy);
+        })
     }
 }

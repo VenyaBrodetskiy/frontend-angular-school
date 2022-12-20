@@ -17,6 +17,7 @@ import { LoginPage } from './pages/login/login.page';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexBasicsPage } from './pages/flex-basics/flex-basics.page';
 import { MatInputModule } from "@angular/material/input";
+import { FilterObjectPipe } from "./pipes/filter.pipe";
 
 const routes: Routes = [
     { path: States.persons, component: PersonsPage },
@@ -40,7 +41,8 @@ const routes: Routes = [
         CheckBoxComponent,
         RxjsComponent,
         LoginPage,
-        FlexBasicsPage
+        FlexBasicsPage,
+        FilterObjectPipe
     ],
     imports: [
         FormsModule,
